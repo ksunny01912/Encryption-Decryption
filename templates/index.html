@@ -81,12 +81,18 @@
       var result_text_input = document.querySelector(".result-text-input");
       var result_text = document.querySelector("#result-text");
       var text = document.querySelector("#text");
+      var key1_field = document.querySelector("#key1");
+      var key2_field = document.querySelector("#key2");
+
 
       // console.log(submit_btn)
       var fm = document.querySelector('#form-1');
 
       button1.addEventListener('click',function(){
-
+        if (key1_field.value=="" || key2_field.value==""){
+          alert("All fields are required")
+        }
+        else{
         button2_div.classList.add('hide');
         text_label_div.classList.remove('hide');
         text_input.classList.remove("hide");
@@ -98,9 +104,14 @@
         button1.classList.add('hide');
         submit_btn_div.classList.remove('hide');
         fm.elements.action.value='en';
+      }
       })
 
       button2.addEventListener('click',function(){
+        if (key1_field.value=="" || key2_field.value==""){
+          alert("All fields are required")
+        }
+        else{
         button1_div.classList.add('hide');
         text_label_div.classList.remove('hide');
         text_input.classList.remove("hide");
@@ -115,13 +126,18 @@
         submit_btn_div.classList.remove('hide');
         submit_btn.innerHTML='Decryption';
         fm.elements.action.value='dy';
+      }
       })
 
       submit_btn.addEventListener('click',function(){
+
+
         let key1 = fm.elements.key1.value;
         let  key2 = fm.elements.key2.value;
         let text = fm.elements.text.value;
         let action = fm.elements.action.value
+        if (text==""){alert("All fileds are required.")}
+        else{
         obj={
           key1:key1,
           key2:key2,
@@ -147,6 +163,7 @@
               fm.elements.text.value='';
               
           })
+        }
       })
     </script>
 </body>
