@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">.
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <div class="card">
+        <h2>Encryption-Decryption</h2>
+        <div class="row">
+            <form method="post">
+                <div class="col">
+                    <label>ENTER THE FIRST KEY</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="key1" name="key1" placeholder="Enter first key">
+                </div>
+                <div class="line"></div>
+                <div class="col">
+                    <label>ENTER THE SECOND KEY</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="key2" name="key2" placeholder="Enter second key">
+                </div>
+                <div class="line"></div>
+                <div class="col">
+                    <label>ENTER PLAIN TEXT</label>
+                </div>
+                <div class="col">
+                    <input type="text"  id="text" name="text" placeholder="Enter plain text">
+                </div>
+                <div class="line"></div>
+                <div class="col">
+                    <button type="submit" id="button1" >Encryption</button>
+                </div>        
+            </form>
+            <div class="line"></div>
+            <form action="decrypt/" method="get">
+                <div class="col">
+                    <label>ENCRYPTED TEXT</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="keys1"value="{{result}}" name="text1">
+                </div>
+                <div class="line"></div>
+                <div class="col">
+                    <button type="submit" id="button2" >Decryption</button>
+                </div>
+                <div class="line"></div>
+                <input type="hidden" id="k1" name="k1" value="{{k1}}">
+                <input type="hidden" id="k2" name="k2" value="{{k2}}">
+                <div class="col">
+                    <label>DECRYPTED TEXT</label>
+                </div>
+                <div class="col">
+                    <div id="dec"><p>{{res}}</p></div>
+                </div>       
+            </form>
+        </div>
+    </div>
+</body>
+</html>
