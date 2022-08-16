@@ -75,7 +75,7 @@ height: 2px;
 /* border-bottom: 1px solid black; */
 width: 100%;
 }
-#key1,#key2,#keys1,#text{
+#key1,#key2,#keys1,#text,#result-text{
 background-color: rgb(72, 69, 69);
 border-radius: 10px;
 width: 80%;
@@ -84,7 +84,7 @@ position: relative;
 color: rgb(214, 208, 208);
 font-size: medium;
 }
-#button1 ,#button2{
+#button1 ,#button2,#submit-btn{
 background-color:rgba(150, 147, 147, 0.354); /* Green */
 border: none;
 
@@ -109,3 +109,7 @@ background-color: #4a4d4b;
 color: white;
 }
 
+
+.hide{
+    display: none !important;
+}

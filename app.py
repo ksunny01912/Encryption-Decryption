@@ -1,7 +1,7 @@
-from flask import Flask,request,redirect,render_template
+from flask import Flask,request,redirect,render_template,jsonify
 from flask_sqlalchemy import SQLAlchemy
 from utils import algo,decrypt
-
+import json
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'  
@@ -29,6 +29,7 @@ def main():
         result=""
         key1=""
         key2=""
+        #this post method we are not using
         if request.method=='POST':
             # print(request.POST)
             result=algo(request.form['key1'],request.form['key2'],request.form['text'])
@@ -40,6 +41,8 @@ def main():
     except:
         return render_template('4oo.html')
 
+
+#this route we are not using.
 @app.route("/decrypt/",methods=['GET', 'POST'])
 def Decrypt():
     try:
@@ -50,7 +53,22 @@ def Decrypt():
     except:
         return render_template('4oo.html')
 
-    
+
+
+@app.route("/api/",methods=['GET', 'POST'])
+def apiview():
+    if request.method == "POST":
+        result=''
+        try:
+            data = json.loads(request.data)
+            if data['action']=='en':
+                result=algo(data['key1'],data['key2'],data['text'])
+            elif data['action']=='dy':
+                result=decrypt(data['key1'],data['key2'],data['text'])
+        except:
+            result=''
+        d={'result':result}
+        return jsonify(d)
 
 
 
