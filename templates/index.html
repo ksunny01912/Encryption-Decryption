@@ -155,7 +155,9 @@
           .then((resp_data) => {
               console.log(resp_data);
               result_text_div.classList.remove('hide');
-              result_text_label.innerHTML='Encrypted Text';
+              if (resp_data.action=='en'){
+              result_text_label.innerHTML='Encrypted Text';}
+              else{result_text_label.innerHTML='Dycrypted Text';}
               result_text_input.classList.remove('hide');
               result_text.value=resp_data.result;
               fm.elements.key1.value='';

@@ -59,15 +59,18 @@ def Decrypt():
 def apiview():
     if request.method == "POST":
         result=''
+        action='en'
         try:
             data = json.loads(request.data)
             if data['action']=='en':
                 result=algo(data['key1'],data['key2'],data['text'])
+
             elif data['action']=='dy':
                 result=decrypt(data['key1'],data['key2'],data['text'])
+                action='dy'
         except:
             result=''
-        d={'result':result}
+        d={'result':result,'action':action}
         return jsonify(d)
 
 
